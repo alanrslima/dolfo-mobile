@@ -4,13 +4,14 @@ import { SectionHeaderContainer } from "./section-header.styles";
 
 export type SectionHeaderProps = {
   title: string;
-  rightComponent?: () => ReactNode;
+  rightComponent?: ReactNode;
 };
 
 export function SectionHeader(props: SectionHeaderProps) {
   return (
     <SectionHeaderContainer>
       <Title size="xl">{props.title}</Title>
+      {props.rightComponent}
     </SectionHeaderContainer>
   );
 }

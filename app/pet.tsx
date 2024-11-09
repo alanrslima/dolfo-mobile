@@ -1,25 +1,21 @@
 import {
-  Avatar,
-  Card,
   Carousel,
   Headline,
-  Icon,
-  IconButton,
   ListItem,
   Screen,
   SectionHeader,
   Spacer,
   Surface,
-  Title,
 } from "@/components";
-import { Button, Dimensions, ScrollView, View } from "react-native";
+import { Link } from "expo-router";
+import { Dimensions, ScrollView } from "react-native";
 import styled from "styled-components/native";
 
 const Image = styled.Image`
   height: 350px;
 `;
 
-export default function IndexScreen() {
+export default function PetScreen() {
   return (
     <Screen useTopSafeArea={false}>
       <ScrollView>
@@ -35,6 +31,7 @@ export default function IndexScreen() {
           )}
         />
         <Spacer h={5} />
+        <Link href="/add-pet">Link</Link>
         <Headline
           title="Esmeralda"
           subTitle="Golden Retriever • Female • 2.5 years"
@@ -45,7 +42,7 @@ export default function IndexScreen() {
             disabled
             bgIconColor="positive600"
             iconColor="white"
-            icon="health-and-safety"
+            icon="ab-testing"
             paragraph="Lorem ipsum dolor sit amet consectetur. Ut sit magna commodo urna in."
           />
         </Surface>
@@ -70,13 +67,13 @@ export default function IndexScreen() {
         <Surface padding={4} gap={4} marginVertical={7}>
           <ListItem
             title="Alergia a Pulgas e Carrapatos"
-            icon="bug-report"
+            icon="bug"
             onPress={() => {}}
             paragraph="Lorem ipsum dolor sit amet consectetur. Ut sit magna commodo urna in."
           />
           <ListItem
             onPress={() => {}}
-            icon="clean-hands"
+            icon="cloud-search"
             title="Alergia a Produtos de Limpeza"
             paragraph="Lorem ipsum dolor sit amet consectetur. Ut sit magna commodo urna in."
           />
@@ -87,13 +84,13 @@ export default function IndexScreen() {
         <Surface padding={4} gap={4} marginVertical={7}>
           <ListItem
             title="Alergia a Pulgas e Carrapatos"
-            icon="bug-report"
+            icon="bug"
             onPress={() => {}}
             paragraph="Lorem ipsum dolor sit amet consectetur. Ut sit magna commodo urna in."
           />
           <ListItem
             onPress={() => {}}
-            icon="clean-hands"
+            icon="card-account-details-star"
             title="Alergia a Produtos de Limpeza"
             paragraph="Lorem ipsum dolor sit amet consectetur. Ut sit magna commodo urna in."
           />

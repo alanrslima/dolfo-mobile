@@ -1,6 +1,6 @@
 import styled from "styled-components/native";
 
-export const HeaderContainer = styled.View<{
+export const NavBarHeaderContainer = styled.View<{
   $safeAreaInsetTop: number;
   $float?: boolean;
 }>`

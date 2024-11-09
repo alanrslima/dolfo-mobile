@@ -1,8 +1,8 @@
-import MaterialIcons from "@expo/vector-icons/MaterialIcons";
+import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
 import { ColorProps } from "@/types";
 import { IconButtonContainer, IconContainer, IconWrapper } from "./icon.styles";
 
-export type IconNames = keyof typeof MaterialIcons.glyphMap;
+export type IconNames = keyof typeof MaterialCommunityIcons.glyphMap;
 
 export type IconProps = {
   name: IconNames;

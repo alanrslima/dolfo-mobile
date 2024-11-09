@@ -1,17 +1,18 @@
 import { ReactNode } from "react";
 import { ScreenContainer } from "./screen.styles";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
-import { Header } from "@/components/molecules";
 
 type ScreenProps = {
   children: ReactNode;
   useTopSafeArea?: boolean;
   useBottomSafeArea?: boolean;
+  header?: ReactNode;
 };
 
 export function Screen({
-  useBottomSafeArea = true,
-  useTopSafeArea = true,
+  useBottomSafeArea = false,
+  useTopSafeArea = false,
+  header,
   children,
 }: ScreenProps) {
   const { top, bottom } = useSafeAreaInsets();
@@ -21,7 +22,7 @@ export function Screen({
 
   return (
     <ScreenContainer $marginBottom={marginBottom} $marginTop={marginTop}>
-      <Header float />
+      {header}
       {children}
     </ScreenContainer>
   );

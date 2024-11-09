@@ -4,6 +4,9 @@ export type ColorProps = {
 
   border: string;
 
+  button: string;
+  onButtonPrimary: string;
+
   background: string;
   onBackgroundPrimary: string;
   onBackgroundSecondary: string;
@@ -133,11 +136,10 @@ export type BorderProps = {
 };
 
 export type FontProps = {
-  montserrat_regular: string;
-  montserrat_medium: string;
-  montserrat_semiBold: string;
-  montserrat_bold: string;
-  montserrat_black: string;
+  poppinsRegular: string;
+  poppinsMedium: string;
+  poppinsBold: string;
+  poppinsSemiBold: string;
 };
 
 export type FontSizeProps = {

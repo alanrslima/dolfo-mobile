@@ -5,6 +5,8 @@ export const colors: ColorProps = {
   black: "#000000",
 
   border: "rgba(0,0,0,0.1)",
+  button: "#000",
+  onButtonPrimary: "#FFF",
 
   background: "#F4F4F4",
   onBackgroundPrimary: "rgba(0,0,0,1)",

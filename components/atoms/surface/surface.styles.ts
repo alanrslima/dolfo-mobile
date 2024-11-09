@@ -8,6 +8,7 @@ export const SurfaceContainer = styled.View<{
   $marginVertical: keyof SpaceProps;
 }>`
   border: 1px solid ${({ theme }) => theme.colors.border};
+  overflow: hidden;
   padding: ${({ theme, $padding }) => theme.spaces[$padding]};
   gap: ${({ theme, $gap }) => theme.spaces[$gap]};
   border-radius: ${({ theme }) => theme.radii.md};
