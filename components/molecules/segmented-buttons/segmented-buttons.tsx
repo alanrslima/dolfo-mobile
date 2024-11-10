@@ -19,6 +19,7 @@ export function SegmentedButtons(props: SegmentedButtonsProps) {
           key={button.value}
           selected={button.value === props.value}
           icon={button.icon}
+          onPress={() => props.onValueChange(button.value)}
           text={button.label}
         />
       ))}

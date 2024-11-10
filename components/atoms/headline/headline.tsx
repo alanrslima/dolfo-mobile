@@ -16,10 +16,12 @@ export function Headline(props: HeadlineProps) {
   return (
     <HeadlineContainer>
       <HeadlineContent>
-        <HeadlineTitle weight="bold" size="3xl">
+        <HeadlineTitle weight="semiBold" size="3xl">
           {props.title}
         </HeadlineTitle>
-        <HeadlineSubTitle weight="bold">{props.subTitle}</HeadlineSubTitle>
+        {props.subTitle && (
+          <HeadlineSubTitle weight="regular">{props.subTitle}</HeadlineSubTitle>
+        )}
       </HeadlineContent>
       {props.rightComponent && props.rightComponent()}
     </HeadlineContainer>

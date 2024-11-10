@@ -13,6 +13,7 @@ import {
   useState,
 } from "react";
 import { ScrollView } from "react-native-gesture-handler";
+import { ProgressLine } from "@/components/molecules";
 
 export type MultiStepFormProps = {
   steps: { id: string; content: ReactNode }[];
@@ -37,12 +38,15 @@ export const MultiStepForm = forwardRef<
   }, [index]);
 
   const next = () => {
-    if (index === props.steps.length - 1) return;
-    setIndex((prev) => (prev += 1));
+    if (index < props.steps.length - 1) {
+      setIndex((prev) => (prev += 1));
+    }
   };
 
   const previous = () => {
-    setIndex((prev) => (prev -= 1));
+    if (index > 0) {
+      setIndex((prev) => (prev -= 1));
+    }
   };
 
   useImperativeHandle(ref, () => ({

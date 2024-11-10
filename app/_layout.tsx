@@ -13,12 +13,18 @@ import "react-native-reanimated";
 
 import { useColorScheme } from "@/hooks/useColorScheme";
 import { darkTheme, lightTheme } from "@/styles";
+import { useWindowDimensions } from "react-native";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
+import { ThemeProps } from "@/types";
+import { PortalProvider } from "@gorhom/portal";
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
   const colorScheme = useColorScheme();
+  const windowDimensions = useWindowDimensions();
+  const safeAreaInsets = useSafeAreaInsets();
   const [loaded] = useFonts({
     SpaceMono: require("../assets/fonts/SpaceMono-Regular.ttf"),
     PoppinsRegular: require("../assets/fonts/Poppins-Regular.ttf"),
@@ -37,15 +43,28 @@ export default function RootLayout() {
     return null;
   }
 
+  const hydrateTheme = (theme: ThemeProps): ThemeProps => {
+    return {
+      ...theme,
+      deviceDimensions: { ...windowDimensions, ...safeAreaInsets },
+    };
+  };
+
   return (
     <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
       <StyledThemeProvider
-        theme={colorScheme === "dark" ? darkTheme : lightTheme}
+        theme={
+          colorScheme === "dark"
+            ? hydrateTheme(darkTheme)
+            : hydrateTheme(lightTheme)
+        }
       >
-        <Stack screenOptions={{ headerShown: false }}>
-          <Stack.Screen name="(tabs)" />
-          <Stack.Screen name="+not-found" />
-        </Stack>
+        <PortalProvider>
+          <Stack screenOptions={{ headerShown: false }}>
+            <Stack.Screen name="(tabs)" />
+            <Stack.Screen name="+not-found" />
+          </Stack>
+        </PortalProvider>
       </StyledThemeProvider>
     </ThemeProvider>
   );

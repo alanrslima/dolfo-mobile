@@ -13,7 +13,7 @@ export const NavBarHeaderContainer = styled.View<{
     `${$safeAreaInsetTop}px ${theme.spaces[6]} 0px ${theme.spaces[6]}`};
   height: ${({ $safeAreaInsetTop }) => 59 + $safeAreaInsetTop}px;
   flex-direction: row;
-  background-color: rgba(255, 255, 255, 0.3);
+  background-color: ${({ theme }) => theme.colors.surface};
   z-index: 999;
   border-bottom-width: 0.5px;
   border-bottom-color: ${({ theme }) => theme.colors.border};

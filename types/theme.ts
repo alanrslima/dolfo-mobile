@@ -7,6 +7,8 @@ export type ColorProps = {
   button: string;
   onButtonPrimary: string;
 
+  iconButtonBackground: string;
+
   background: string;
   onBackgroundPrimary: string;
   onBackgroundSecondary: string;
@@ -235,6 +237,17 @@ export type SpaceProps = {
   14: string;
 };
 
+export type DeviceDimensionsProps = {
+  fontScale: number;
+  height: number;
+  scale: number;
+  width: number;
+  bottom: number;
+  left: number;
+  right: number;
+  top: number;
+};
+
 export type ThemeProps = {
   borders: BorderProps;
   colors: ColorProps;
@@ -246,4 +259,5 @@ export type ThemeProps = {
   sizes: SizeProps;
   spaces: SpaceProps;
   fontWeights: FontWeightProps;
+  deviceDimensions: DeviceDimensionsProps;
 };

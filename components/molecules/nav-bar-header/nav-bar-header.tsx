@@ -12,7 +12,12 @@ export function NavBarHeader(props: HeaderProps) {
 
   return (
     <NavBarHeaderContainer $float={props.float} $safeAreaInsetTop={top}>
-      <IconButton name="chevron-left" onPress={router.back} />
+      <IconButton
+        name="chevron-left"
+        bgColor="iconButtonBackground"
+        color="onSurfacePrimary"
+        onPress={router.back}
+      />
     </NavBarHeaderContainer>
   );
 }

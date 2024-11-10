@@ -15,7 +15,7 @@ import { router } from "expo-router";
 
 export default function HomeScreen() {
   return (
-    <Screen useTopSafeArea>
+    <Screen safeAreaColor="background" useTopSafeArea>
       <ScrollView>
         <Headline
           title="Everything Your Pet’s Needs"

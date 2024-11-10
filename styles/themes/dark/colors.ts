@@ -8,6 +8,8 @@ export const colors: ColorProps = {
   button: "#FFF",
   onButtonPrimary: "#000",
 
+  iconButtonBackground: "rgba(255,255,255,0.075)",
+
   background: "#000",
   onBackgroundPrimary: "rgba(255,255,255,1)",
   onBackgroundSecondary: "rgba(255,255,255,0.4)",
