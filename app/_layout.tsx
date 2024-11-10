@@ -17,6 +17,8 @@ import { useWindowDimensions } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { ThemeProps } from "@/types";
 import { PortalProvider } from "@gorhom/portal";
+import { QueryClientProvider } from "@tanstack/react-query";
+import { queryClient } from "@/services/api/query-client";
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
@@ -59,12 +61,14 @@ export default function RootLayout() {
             : hydrateTheme(lightTheme)
         }
       >
-        <PortalProvider>
-          <Stack screenOptions={{ headerShown: false }}>
-            <Stack.Screen name="(tabs)" />
-            <Stack.Screen name="+not-found" />
-          </Stack>
-        </PortalProvider>
+        <QueryClientProvider client={queryClient}>
+          <PortalProvider>
+            <Stack screenOptions={{ headerShown: false }}>
+              <Stack.Screen name="(tabs)" />
+              <Stack.Screen name="+not-found" />
+            </Stack>
+          </PortalProvider>
+        </QueryClientProvider>
       </StyledThemeProvider>
     </ThemeProvider>
   );
