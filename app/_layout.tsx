@@ -10,18 +10,22 @@ import { Stack } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
 import { useEffect } from "react";
 import "react-native-reanimated";
-
 import { useColorScheme } from "@/hooks/useColorScheme";
 import { darkTheme, lightTheme } from "@/styles";
-import { useWindowDimensions } from "react-native";
+import { LogBox, useWindowDimensions } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { ThemeProps } from "@/types";
 import { PortalProvider } from "@gorhom/portal";
-import { QueryClientProvider } from "@tanstack/react-query";
-import { queryClient } from "@/services/api/query-client";
+import { PetMemoryService } from "@/services/pets/pet-memory-service";
+import { DependencyProvider } from "@/contexts/dependency-context";
+import { PetsProvider } from "@/contexts/pets-context";
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
+
+LogBox.ignoreAllLogs();
+console.log("LAYOUTT");
+const petMemoryService = new PetMemoryService();
 
 export default function RootLayout() {
   const colorScheme = useColorScheme();
@@ -61,14 +65,17 @@ export default function RootLayout() {
             : hydrateTheme(lightTheme)
         }
       >
-        <QueryClientProvider client={queryClient}>
-          <PortalProvider>
-            <Stack screenOptions={{ headerShown: false }}>
-              <Stack.Screen name="(tabs)" />
-              <Stack.Screen name="+not-found" />
-            </Stack>
-          </PortalProvider>
-        </QueryClientProvider>
+        <DependencyProvider petService={petMemoryService}>
+          <PetsProvider>
+            <PortalProvider>
+              <Stack screenOptions={{ headerShown: false }}>
+                <Stack.Screen name="(tabs)" />
+
+                <Stack.Screen name="+not-found" />
+              </Stack>
+            </PortalProvider>
+          </PetsProvider>
+        </DependencyProvider>
       </StyledThemeProvider>
     </ThemeProvider>
   );

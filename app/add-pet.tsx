@@ -1,13 +1,19 @@
 import { NavBarHeader, Screen } from "@/components";
-import { PetForm } from "@/components/forms";
-import { withSafeAreaInsets } from "react-native-safe-area-context";
+import { PetForm, PetFormSubmitData } from "@/components/forms";
+import { usePets } from "@/hooks/use-pets";
+import { router } from "expo-router";
 
 export default function AddPet() {
-  async function onSubmitPet() {}
+  const { registerPet } = usePets();
+
+  async function onSubmit(data: PetFormSubmitData) {
+    await registerPet(data);
+    router.back();
+  }
 
   return (
     <Screen useBottomSafeArea header={<NavBarHeader />}>
-      <PetForm onSubmit={onSubmitPet} />
+      <PetForm onSubmit={onSubmit} />
     </Screen>
   );
 }

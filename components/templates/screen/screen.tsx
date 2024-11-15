@@ -9,6 +9,7 @@ type ScreenProps = {
   useBottomSafeArea?: boolean;
   header?: ReactNode;
   safeAreaColor?: keyof ColorProps;
+  type?: "scroll" | "list" | "view";
 };
 
 export function Screen({
