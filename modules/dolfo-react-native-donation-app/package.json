@@ -1,0 +1,22 @@
+{
+  "name": "dolfo-react-native-donation-app",
+  "version": "0.0.0",
+  "description": "Modulo de doacoes de pets",
+  "main": "src/index",
+  "codegenConfig": {
+    "name": "RNDolfoReactNativeDonationAppSpec",
+    "type": "modules",
+    "jsSrcsDir": "src"
+  },
+  "author": " <> ()",
+  "license": "UNLICENSED",
+  "homepage": "#readme",
+  "create-react-native-library": {
+    "languages": "js",
+    "type": "library",
+    "version": "0.45.5"
+  },
+  "peerDependencies": {
+    "@react-navigation/native-stack": "^7.2.0"
+  }
+}
