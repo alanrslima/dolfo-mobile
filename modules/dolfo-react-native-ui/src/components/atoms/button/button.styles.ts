@@ -34,16 +34,18 @@ const variantsContainerStyles = (
       background-color: ${theme.colors.secondary};
     `,
     tertiary: css`
-      background-color: ${theme.colors.secondary};
+      background-color: ${theme.colors.backgroundElevated};
     `,
     outline: css`
       background-color: ${theme.colors.secondary};
     `,
   }[variant]);
 
-export const ButtonContainer = styled.TouchableHighlight<{
+export const ButtonContainer = styled.TouchableOpacity<{
   $size: ButtonSizes;
   $variant: ButtonVariants;
+  $full?: boolean;
+  $fit?: boolean;
 }>`
   background-color: ${({theme}) => theme.colors.primary};
   justify-content: center;
@@ -51,7 +53,7 @@ export const ButtonContainer = styled.TouchableHighlight<{
   padding: 0px ${({theme}) => theme.spaces[5]};
   align-self: flex-start;
   border-radius: ${({theme}) => theme.radii.md};
-  min-width: 175px;
+  min-width: ${({$fit, $full}) => ($fit ? 'auto' : $full ? '100%' : '175px')};
 
   ${({theme, $size}) => sizesStyles(theme, $size)}
   ${({theme, $variant}) => variantsContainerStyles(theme, $variant)};

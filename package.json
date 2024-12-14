@@ -15,10 +15,12 @@
     "@react-navigation/native-stack": "^7.2.0",
     "dolfo-react-native-donation-app": "file:./modules/dolfo-react-native-donation-app",
     "dolfo-react-native-ui": "file:./modules/dolfo-react-native-ui",
+    "lucide-react-native": "^0.468.0",
     "react": "18.3.1",
     "react-native": "0.76.4",
     "react-native-safe-area-context": "^5.0.0",
-    "react-native-screens": "^4.3.0"
+    "react-native-screens": "^4.3.0",
+    "react-native-svg": "^15.10.1"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",

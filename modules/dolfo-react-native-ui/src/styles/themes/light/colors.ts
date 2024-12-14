@@ -1,6 +1,11 @@
 import {ColorProps} from '../../../types/theme';
 
 export const colors: ColorProps = {
+  backgroundScreen: '#FFFFFF',
+  backgroundElevated: '#F1F2F3',
+  backgroundNeutral: '#C7CCD1',
+  backgroundOverlay: '#E3E6E8',
+
   background: '#F4F4F4',
   onBackgroundPrimary: 'rgba(0,0,0,1)',
   onBackgroundSecondary: 'rgba(0,0,0,0.4)',

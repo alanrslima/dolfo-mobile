@@ -1,6 +1,6 @@
 import styled from 'styled-components/native';
-import {SpaceProps} from '../../../types';
 
-export const SpacerContainer = styled.View<{$h: keyof SpaceProps}>`
-  height: ${({theme, $h}) => theme.spaces[$h]};
+export const SpacerContainer = styled.View<{$h?: string; $w?: string}>`
+  height: ${({$h}) => $h || 'auto'};
+  width: ${({$w}) => $w || 'auto'};
 `;

@@ -1,4 +1,9 @@
 export type ColorProps = {
+  backgroundScreen: string;
+  backgroundElevated: string;
+  backgroundNeutral: string;
+  backgroundOverlay: string;
+
   background: string;
   onBackgroundPrimary: string;
   onBackgroundSecondary: string;

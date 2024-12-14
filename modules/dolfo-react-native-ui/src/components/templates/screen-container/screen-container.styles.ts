@@ -7,6 +7,7 @@ export const ScreenContainerView = styled.View<{
   flex: 1;
   padding-top: ${({$statusBarHeight}) => $statusBarHeight}px;
   padding-bottom: ${({$bottomSpace}) => $bottomSpace}px;
+  background-color: ${({theme}) => theme.colors.backgroundScreen};
 `;
 
 export const ScreenContainerContent = styled.View<{}>`

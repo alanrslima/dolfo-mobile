@@ -5,3 +5,5 @@ export * from './footer/footer';
 export * from './divider/divider';
 export * from './wrapper/wrapper';
 export * from './spacer/spacer';
+export * from './icon/icon';
+export * from './avatar/avatar';
