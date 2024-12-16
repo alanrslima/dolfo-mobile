@@ -1,4 +1,8 @@
 export type ColorProps = {
+  interactivePrimary: string;
+  interactiveAccent: string;
+  interactiveSecondary: string;
+
   backgroundScreen: string;
   backgroundElevated: string;
   backgroundNeutral: string;

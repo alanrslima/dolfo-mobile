@@ -1,11 +1,12 @@
 import React from 'react';
 import {SpacerContainer} from './spacer.styles';
+import {SpaceProps} from '../../../types';
 
 export type SpacerProps = {
-  h?: string;
+  h?: keyof SpaceProps;
   w?: string;
 };
 
-export function Spacer(props: SpacerProps) {
-  return <SpacerContainer $w={props.w} $h={props.h} />;
+export function Spacer({h = 0, w}: SpacerProps) {
+  return <SpacerContainer $w={w} $h={h} />;
 }

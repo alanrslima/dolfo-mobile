@@ -29,7 +29,7 @@ export function Button({
       $fit={fit}
       $variant={variant}
       $size={size}>
-      <ButtonText>{title}</ButtonText>
+      <ButtonText $variant={variant}>{title}</ButtonText>
     </ButtonContainer>
   );
 }

@@ -6,7 +6,9 @@ export const SummaryContainer = styled.View`
   gap: ${({theme}) => theme.spaces[4]};
 `;
 
-export const SummaryContent = styled.View``;
+export const SummaryContent = styled.View`
+  flex: 1;
+`;
 
 export const SummaryTitle = styled(Typography).attrs({
   type: 'body-large-bold',
@@ -14,4 +16,5 @@ export const SummaryTitle = styled(Typography).attrs({
 
 export const SummaryParagraph = styled(Typography).attrs({
   type: 'body-default',
+  color: 'onBackgroundSecondary',
 })``;

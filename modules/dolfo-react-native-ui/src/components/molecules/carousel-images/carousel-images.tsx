@@ -1,11 +1,7 @@
 import React from 'react';
 import {useState} from 'react';
-import {
-  CarouselImagesContainer,
-  CarouselImagesItem,
-  CarouselImagesPage,
-} from './carousel-images.styles';
-import {ImageSourcePropType} from 'react-native';
+import {CarouselImagesItem, CarouselImagesPage} from './carousel-images.styles';
+import {FlatList, ImageSourcePropType} from 'react-native';
 
 export type CarouselProps = {
   height?: number;
@@ -16,7 +12,7 @@ export function CarouselImages(props: CarouselProps) {
   const [containerWidth, setContainerWidth] = useState(0);
 
   return (
-    <CarouselImagesContainer
+    <FlatList
       showsHorizontalScrollIndicator={false}
       onLayout={evt => setContainerWidth(evt.nativeEvent.layout.width)}
       pagingEnabled

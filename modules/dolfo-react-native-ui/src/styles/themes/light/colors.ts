@@ -1,6 +1,10 @@
 import {ColorProps} from '../../../types/theme';
 
 export const colors: ColorProps = {
+  interactivePrimary: '#0B1A28',
+  interactiveAccent: '#4992D0',
+  interactiveSecondary: '#E0E6EB',
+
   backgroundScreen: '#FFFFFF',
   backgroundElevated: '#F1F2F3',
   backgroundNeutral: '#C7CCD1',

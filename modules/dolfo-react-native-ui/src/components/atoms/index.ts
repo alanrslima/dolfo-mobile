@@ -7,3 +7,4 @@ export * from './wrapper/wrapper';
 export * from './spacer/spacer';
 export * from './icon/icon';
 export * from './avatar/avatar';
+export * from './icon-button/icon-button';

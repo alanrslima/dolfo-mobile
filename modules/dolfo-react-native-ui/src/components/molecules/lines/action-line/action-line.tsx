@@ -1,6 +1,6 @@
 import React from 'react';
 import {ActionLineLeadingContainer} from './action-line.styles';
-import {Button, Icon, IconNames} from '../../../atoms';
+import {Button, ButtonProps, Icon, IconNames} from '../../../atoms';
 import {BaseLine} from '../base-line/base-line';
 
 export type ActionLineProps = {
@@ -8,6 +8,7 @@ export type ActionLineProps = {
   title: string;
   description?: string;
   leadingIcon?: IconNames;
+  actionButton: ButtonProps;
 };
 
 const LeftComponent = (props: ActionLineProps) => {
@@ -28,9 +29,7 @@ export function ActionLine(props: ActionLineProps) {
       overline={props.overline}
       description={props.description}
       leftComponent={<LeftComponent {...props} />}
-      rightComponent={
-        <Button size="xs" variant="tertiary" title="Alterar" fit />
-      }
+      rightComponent={<Button {...props.actionButton} />}
     />
   );
 }

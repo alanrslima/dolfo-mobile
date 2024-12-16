@@ -1,5 +1,5 @@
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
-import React from 'react';
+import React, {useRef} from 'react';
 import {DonationAppStackParamList} from '../router';
 import {RouteProp} from '@react-navigation/native';
 import {
@@ -8,6 +8,7 @@ import {
   CarouselImages,
   Divider,
   Footer,
+  NavigationHeader,
   NavigationLine,
   ScreenContainer,
   SectionHeader,
@@ -17,6 +18,10 @@ import {
   Typography,
   Wrapper,
 } from 'dolfo-react-native-ui';
+import {
+  DeliveryModeToggle,
+  DeliveryModeToggleHandle,
+} from '../components/delivery-mode-toggle/delivery-mode-toggle';
 
 type PetScreenNavigationProp = NativeStackNavigationProp<
   DonationAppStackParamList,
@@ -31,11 +36,21 @@ type PetScreenProps = {
 };
 
 export function PetScreen({navigation}: PetScreenProps) {
-  function onPressAdopt() {}
+  const deliveryModeToggleRef = useRef<DeliveryModeToggleHandle>(null);
+
+  function onPressAdopt() {
+    navigation.navigate('CheckoutScreen');
+    // bottomRef?.current?.show();
+  }
+
+  function onPressDeliveryMode() {
+    deliveryModeToggleRef?.current?.show();
+  }
 
   return (
     <ScreenContainer
       withoutTopSpace
+      header={<NavigationHeader />}
       footer={
         <Footer>
           <Spacer />
@@ -58,20 +73,20 @@ export function PetScreen({navigation}: PetScreenProps) {
       />
       <Wrapper py={7} px={7}>
         <SectionHeader title="Bob" subtitle="Rua das Palmeeiras, 308" />
-        <Spacer h="16px" />
+        <Spacer h={5} />
         <Typography>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur
           at ipsa doloremque corporis dolor hic officia, voluptas quisquam
           placeat officiis repudiandae saepe quis cupiditate veniam adipisci
           modi. Dolorum, porro. Mollitia?
         </Typography>
-        <Spacer h="16px" />
+        <Spacer h={5} />
         <Summary icon="Calendar" title="Idade • 2 anos" />
-        <Spacer h="16px" />
+        <Spacer h={5} />
         <Summary icon="Shield" title="Gênero • Macho" />
-        <Spacer h="16px" />
+        <Spacer h={5} />
         <Summary icon="Palette" title="Cor • Rajado" />
-        <Spacer h="16px" />
+        <Spacer h={5} />
         <Summary icon="Weight" title="Peso • 3kg" />
         <Divider />
         <SimpleLine
@@ -88,9 +103,23 @@ export function PetScreen({navigation}: PetScreenProps) {
           leadingIcon="CalendarHeart"
           title="10 de Dez, 2024"
           overline="Data de adoção"
+          actionButton={{
+            title: 'Alterar',
+            size: 'xs',
+            onPress: () => {},
+            fit: true,
+            variant: 'tertiary',
+          }}
         />
-        <Spacer h="16px" />
+        <Spacer h={5} />
         <ActionLine
+          actionButton={{
+            title: 'Alterar',
+            size: 'xs',
+            onPress: onPressDeliveryMode,
+            fit: true,
+            variant: 'tertiary',
+          }}
           title="Entrega em casa"
           leadingIcon="House"
           overline="Modo de entrega"
@@ -103,6 +132,7 @@ export function PetScreen({navigation}: PetScreenProps) {
           description="Algo estranho com o anúncio? Clique aqui para denunciar"
         />
       </Wrapper>
+      <DeliveryModeToggle onChange={() => {}} ref={deliveryModeToggleRef} />
     </ScreenContainer>
   );
 }

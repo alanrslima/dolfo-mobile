@@ -1,11 +1,11 @@
 import React from 'react';
 import {useListPetsCatalog} from '../hooks/use-list-pets-catalog';
 import {ItemTile, List, ScreenContainer} from 'dolfo-react-native-ui';
-import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {DonationAppStackParamList} from '../router';
 import {RouteProp} from '@react-navigation/native';
 
-type CatalogScreenNavigationProp = NativeStackNavigationProp<
+type CatalogScreenNavigationProp = NativeStackScreenProps<
   DonationAppStackParamList,
   'CatalogScreen'
 >;

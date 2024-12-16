@@ -2,6 +2,7 @@ import styled, {css, DefaultTheme} from 'styled-components/native';
 import {Typography} from '../typography/typography';
 
 import {ButtonSizes, ButtonVariants} from './button';
+import {ColorProps} from '../../../types';
 
 const sizesStyles = (theme: DefaultTheme, size: ButtonSizes) =>
   ({
@@ -41,6 +42,13 @@ const variantsContainerStyles = (
     `,
   }[variant]);
 
+const variantsTextColor: {[key in ButtonVariants]: keyof ColorProps} = {
+  outline: 'blackA900',
+  primary: 'secondary',
+  secondary: 'primary',
+  tertiary: 'blackA900',
+};
+
 export const ButtonContainer = styled.TouchableOpacity<{
   $size: ButtonSizes;
   $variant: ButtonVariants;
@@ -59,6 +67,9 @@ export const ButtonContainer = styled.TouchableOpacity<{
   ${({theme, $variant}) => variantsContainerStyles(theme, $variant)};
 `;
 
-export const ButtonText = styled(Typography).attrs({
-  type: 'body-default-bold',
-})``;
+export const ButtonText = styled(Typography).attrs<{$variant: ButtonVariants}>(
+  ({$variant}) => ({
+    type: 'body-default-bold',
+    color: variantsTextColor[$variant],
+  }),
+)``;

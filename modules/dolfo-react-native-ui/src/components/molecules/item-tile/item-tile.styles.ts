@@ -1,8 +1,9 @@
 import styled from 'styled-components/native';
 import {Typography} from '../../atoms';
 import {CarouselImages} from '../carousel-images/carousel-images';
+import {View} from 'react-native';
 
-export const ItemTileContainer = styled.TouchableOpacity`
+export const ItemTileContainer = styled(View)`
   border-radius: ${({theme}) => theme.radii.md};
   overflow: hidden;
   gap: ${({theme}) => theme.spaces[5]};
